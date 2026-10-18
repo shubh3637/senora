@@ -41,4 +41,16 @@ $("search").addEventListener("input",render);$("play").onclick=()=>{if(!current)
 $("next").onclick=()=>{let i=tracks.findIndex(t=>t.id===current);playTrack(tracks[(i+1+tracks.length)%tracks.length].id)};$("prev").onclick=()=>{let i=tracks.findIndex(t=>t.id===current);if(audio.currentTime>3){audio.currentTime=0;return}playTrack(tracks[(i-1+tracks.length)%tracks.length].id)};
 $("currentLike").onclick=()=>{if(current)like(current)};function fmt(s){return Number.isFinite(s)?Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0"):"0:00"}audio.addEventListener("timeupdate",()=>{$("elapsed").textContent=fmt(audio.currentTime);$("duration").textContent=fmt(audio.duration);$("progress").style.width=(audio.duration?audio.currentTime/audio.duration*100:0)+"%"});audio.addEventListener("ended",()=>$("next").click());$("seek").onclick=e=>{if(audio.duration){const r=e.currentTarget.getBoundingClientRect();audio.currentTime=(e.clientX-r.left)/r.width*audio.duration}};render();
 </script>
+  <section id="punjabi-playlist" style="background:#101010;color:white;padding:24px 16px;border-radius:16px;margin:20px 0;">
+  <h2>🎵 Punjabi Hits</h2>
+  <p>Listen to Punjabi music on SONORA</p>
+  <iframe
+    src="https://open.spotify.com/embed/playlist/6F4SuG5R10YQBWhyrJT78x?utm_source=oembed"
+    width="100%"
+    height="352"
+    style="border:0;border-radius:12px;"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</section>
 </body></html>
